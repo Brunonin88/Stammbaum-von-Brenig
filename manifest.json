@@ -1,0 +1,30 @@
+{
+  "name": "Stammbaum Brenig",
+  "short_name": "Brenig",
+  "description": "Genealogie der Familie Brenig / Brenich · Vorgebirge · Köln · Rheinland",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#140A04",
+  "theme_color": "#140A04",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "id": "JB-941-2026",
+  "dir": "auto",
+  "lang": "de",
+  "categories": [
+    "education",
+    "politics",
+    "social"
+  ]
+}
