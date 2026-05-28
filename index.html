@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Genealogia Merowingorum, Ottonum, Ezzonum, Brunonum &amp; Brenig · v48c</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0E0704;--parch:#1A0C06;--gold:#C9A32A;--gold2:#E8C75A;
+  --cream:#EDD9A3;--muted:#8A7050;--border:#4A2C14;
+  --panel:#140A04;
+}
+body{background:var(--bg);color:var(--cream);font-family:'Crimson Text',serif;height:100vh;overflow:hidden}
+
+/* Grain overlay */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:99;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='g'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23g)' opacity='.04'/%3E%3C/svg%3E");}
+
+/* Header */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:50;height:54px;
+  background:linear-gradient(180deg,rgba(14,7,4,.98),rgba(14,7,4,.88));
+  border-bottom:1px solid var(--border);
+  display:flex;align-items:center;gap:16px;padding:0 18px;flex-wrap:wrap}
+#hdr h1{font-family:'Cinzel',serif;font-size:16px;font-weight:700;color:var(--gold);
+  letter-spacing:2.5px;white-space:nowrap;flex-shrink:0}
+#hdr h1 span{color:var(--cream);font-weight:400;font-size:13px}
+#srch{background:rgba(255,255,255,.04);border:1px solid var(--border);
+  color:var(--cream);font-family:'Crimson Text',serif;font-size:14px;
+  padding:4px 12px;outline:none;width:180px;flex-shrink:0}
+#srch:focus{border-color:var(--gold)}
+#srch::placeholder{color:var(--muted)}
+#filters{display:flex;gap:5px;flex-wrap:wrap;flex:1}
+.fbtn{background:transparent;border:1px solid;font-family:'Cinzel',serif;
+  font-size:9px;letter-spacing:.8px;padding:3px 8px;cursor:pointer;
+  border-radius:1px;transition:all .2s;opacity:.6;color:var(--cream)}
+.fbtn:hover,.fbtn.on{opacity:1;background:currentColor;color:var(--bg)!important}
+#reset-zoom{background:transparent;border:1px solid var(--border);color:var(--muted);
+  font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;
+  letter-spacing:.8px;margin-left:auto;flex-shrink:0}
+#reset-zoom:hover{color:var(--gold);border-color:var(--gold)}
+
+/* SVG */
+#wrap{position:fixed;inset:0;top:54px}
+svg{width:100%;height:100%;cursor:grab}
+svg.dragging{cursor:grabbing}
+
+/* Links */
+.lnk{fill:none;stroke-width:1.5}
+.lnk-p{stroke:rgba(180,140,80,.28);stroke-opacity:0.4}
+.lnk-m{stroke:rgba(201,163,42,.45);stroke-dasharray:5,4;stroke-opacity:0.5}
+
+/* Nodes */
+.nd{cursor:pointer}
+.nd circle{stroke-width:2.5;transition:r .15s,filter .15s}
+.nd:hover circle{filter:drop-shadow(0 0 8px currentColor)}
+.nd.hi circle{filter:drop-shadow(0 0 12px currentColor);stroke-width:3.5}
+.nd.dim{opacity:.15}
+.nd-name{font-family:'Cinzel',serif;font-size:12px;fill:#ffffff;
+  text-anchor:middle;pointer-events:none;dominant-baseline:central;
+  text-shadow:0 1px 3px #000;font-weight:600}
+.nd-dates{font-family:'Crimson Text',serif;font-size:10px;fill:#d4b896;
+  text-anchor:middle;pointer-events:none}
+
+/* Detail panel */
+#det{position:fixed;right:0;top:54px;bottom:0;width:290px;
+  background:linear-gradient(180deg,rgba(20,10,4,.99),rgba(14,7,4,.99));
+  border-left:1px solid var(--border);padding:22px 18px;z-index:60;
+  transform:translateX(100%);transition:transform .3s ease;overflow-y:auto}
+#det.open{transform:translateX(0)}
+#det-x{position:absolute;top:14px;right:14px;background:none;
+  border:1px solid var(--border);color:var(--muted);width:26px;height:26px;
+  cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center}
+#det-x:hover{color:var(--cream);border-color:var(--gold)}
+#det h2{font-family:'Cinzel',serif;font-size:19px;color:var(--gold);line-height:1.2;margin-bottom:3px}
+.det-tag{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.5px;color:var(--muted);
+  text-transform:uppercase;margin-bottom:12px}
+.det-dates{font-size:16px;color:var(--cream);margin-bottom:14px;font-style:italic}
+.det-role{font-size:14px;line-height:1.65;color:var(--cream);font-style:italic;
+  padding:11px 14px;border-left:2px solid var(--gold);
+  background:rgba(201,163,42,.06);margin-bottom:18px}
+.det-sec{margin-bottom:14px}
+.det-sec h3{font-family:'Cinzel',serif;font-size:9px;letter-spacing:2px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:6px}
+.det-sec p{font-size:14px;color:var(--cream);line-height:1.5}
+.det-rel{display:inline-block;background:rgba(201,163,42,.1);border:1px solid rgba(201,163,42,.2);
+  font-size:12px;padding:2px 8px;margin:2px;cursor:pointer;font-family:'Cinzel',serif}
+.det-rel:hover{background:rgba(201,163,42,.2)}
+
+/* Legend */
+#leg-wrap{position:fixed;left:12px;bottom:14px;z-index:50}
+#leg-toggle{background:rgba(14,7,4,.85);border:1px solid #4A2C14;color:#8A7050;
+  font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;
+  letter-spacing:.8px;margin-bottom:4px;display:block}
+#leg-toggle:hover{color:#C9A32A;border-color:#C9A32A}
+#leg{display:grid;grid-template-columns:1fr 1fr;gap:3px 14px;
+  background:rgba(8,4,2,.8);border:1px solid #2A1A0A;padding:8px 10px;
+  max-height:220px;overflow-y:auto;transition:max-height .3s ease,opacity .3s ease}
+#leg.collapsed{max-height:0;opacity:0;overflow:hidden;padding:0;border:none}
+.leg-it{display:flex;align-items:center;gap:6px;
+  font-family:'Cinzel',serif;font-size:9px;letter-spacing:.5px;color:#c8b090}
+.leg-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;border:2px solid rgba(255,255,255,.4)}
+
+/* Gen labels */
+.gen-lbl{font-family:'Cinzel',serif;font-size:9px;fill:rgba(138,112,80,.35);
+  text-anchor:start;dominant-baseline:middle}
+
+/* Certainty-based styling */
+.lnk-uncertain { stroke-dasharray: 6,4 !important; opacity: 0.45 !important; }
+.nd-certain circle { stroke: #4CAF50 !important; }
+.nd-uncertain circle { stroke: #FF9800 !important; }
+.nd-hypothetical circle { stroke: #888 !important; }
+.nd-legendary circle { stroke: #666 !important; opacity: 0.6; }
+#cert-legend { display:flex; gap:12px; align-items:center; font-family:'Cinzel',serif; font-size:9px; color:#8A7050; padding:4px 8px; flex-shrink:0; }
+.cert-dot { width:8px; height:8px; border-radius:50%; border:2px solid; display:inline-block; margin-right:3px; }
+#cert-filter { background:transparent; border:1px solid #4A2C14; color:#8A7050; font-family:'Cinzel',serif; font-size:9px; padding:3px 8px; cursor:pointer; letter-spacing:.8px; margin-left:4px; flex-shrink:0; }
+#cert-filter.active { border-color:#4CAF50; color:#4CAF50; }
+
+/* Tooltip */
+#tip{position:fixed;pointer-events:none;z-index:80;background:rgba(14,7,4,.93);
+  border:1px solid var(--border);font-family:'Cinzel',serif;font-size:11px;
+  color:var(--cream);padding:5px 10px;max-width:220px;display:none;
+  letter-spacing:.3px;line-height:1.5}
+
+#burgen-panel.open { transform: translateX(0) !important; }
+#siegel-panel.open { transform: translateX(0) !important; }
+#info-panel.open { transform: translateX(0) !important; }
+
+/* ── MOBILE BOTTOM NAV ── */
+#mob-nav {
+  display: none;
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 88px;
+  background: linear-gradient(0deg, rgba(8,3,1,.99), rgba(14,7,4,.97));
+  border-top: 1px solid #4A2C14;
+  z-index: 100;
+  flex-wrap: wrap;
+  align-content: center;
+  padding: 4px 0;
+}
+#mob-nav .mob-btn { width: 25%; }
+.mob-btn {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 2px;
+  background: none; border: none;
+  color: #8A7050; cursor: pointer;
+  font-family: 'Cinzel', serif;
+  font-size: 8px; letter-spacing: .5px;
+  padding: 4px 6px;
+  flex: 1;
+  transition: color .2s;
+}
+.mob-btn:active, .mob-btn.active { color: #C9A32A; }
+.mob-btn-icon { font-size: 18px; line-height: 1; }
+
+/* Mobile search overlay */
+#mob-search {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(8,3,1,.97);
+  z-index: 200;
+  padding: 60px 20px 20px;
+  flex-direction: column;
+  gap: 12px;
+}
+#mob-search.open { display: flex; }
+#mob-search-input {
+  background: rgba(255,255,255,.05);
+  border: 1px solid #4A2C14;
+  color: #EDD9A3;
+  font-family: 'Crimson Text', serif;
+  font-size: 18px;
+  padding: 12px 16px;
+  outline: none;
+  width: 100%;
+}
+#mob-search-input:focus { border-color: #C9A32A; }
+#mob-search-close {
+  position: absolute; top: 16px; right: 16px;
+  background: none; border: none;
+  color: #8A7050; font-size: 22px; cursor: pointer;
+}
+#mob-search-results { overflow-y: auto; flex: 1; }
+.mob-result {
+  padding: 10px 14px;
+  border-bottom: 1px solid #2A1A0A;
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  color: #EDD9A3;
+  cursor: pointer;
+}
+.mob-result:active { background: rgba(201,163,42,.1); }
+.mob-result small { color: #8A7050; font-size: 11px; display: block; margin-top: 2px; }
+
+@media (max-width: 768px) {
+  #mob-nav { display: flex; }
+  /* Compact header on mobile */
+  #hdr { height: 44px; padding: 0 12px; flex-wrap: nowrap; gap: 8px; }
+  #hdr h1 { font-size: 13px; letter-spacing: 1.5px; }
+  #hdr h1 span { display: none; }
+  #srch { display: none; }
+  #filters { display: none; }
+  #reset-zoom { display: none; }
+  #info-btn { display: none; }
+  #burgen-btn { display: none; }
+  #cert-filter { display: none; }
+  #siegel-btn { display: none; }
+  #legend-btn { display: none; }
+  /* Push graph up/down for bars */
+  #wrap { top: 44px; bottom: 88px; }
+  #det { top: 44px; }
+  #info-panel { top: 44px; }
+  #burgen-panel { top: 44px; }
+  #siegel-panel { top: 44px; }
+  /* Legend at bottom-left above nav */
+  #leg-wrap { bottom: 98px; }
+}
+</style>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#140A04">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Brenig">
+</head>
+<body>
+
+<div id="hdr">
+  <h1>Genealogia <span>· Merowingorum · Ottonum · Ezzonum · Brunonum · Brenig</span></h1>
+  <input id="srch" type="text" placeholder="Person suchen …" autocomplete="off">
+  <div id="filters"></div>
+  <button id="reset-zoom">⟳ Reset</button>
+  <button id="info-btn" style="background:transparent;border:1px solid #4A2C14;color:#8A7050;font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;letter-spacing:.8px;margin-left:4px;flex-shrink:0" onclick="document.getElementById('info-panel').classList.toggle('open')" title="Über die prosopographische Vernetzung">ℹ Methodik</button>
+  <button id="burgen-btn" style="background:transparent;border:1px solid #4A2C14;color:#8A7050;font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;letter-spacing:.8px;margin-left:4px;flex-shrink:0" onclick="document.getElementById('burgen-panel').classList.toggle('open')" title="Die 15 Burgen des Wicilinus">⚔ 15 Burgen</button>
+  <button id="cert-filter" onclick="toggleCertFilter()" title="Nur gesicherte Beziehungen">✓ Gesichert</button>
+  <button id="siegel-btn" style="background:transparent;border:1px solid #4A2C14;color:#8A7050;font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;letter-spacing:.8px;margin-left:4px;flex-shrink:0" onclick="document.getElementById('siegel-panel').classList.toggle('open')" title="Sigillum Johannes van Brenich">⚜ Sigillum</button>
+  <button id="legend-btn" style="background:transparent;border:1px solid #4A2C14;color:#8A7050;font-family:'Cinzel',serif;font-size:9px;padding:3px 8px;cursor:pointer;letter-spacing:.8px;margin-left:4px;flex-shrink:0" onclick="toggleLegendary()" title="Legendäre Knoten (Gen 0–5) ein-/ausblenden">📜 Sagenhaft</button>
+</div>
+
+<div id="wrap"><svg id="tree"></svg></div>
+
+<!-- Mobile Bottom Navigation -->
+<nav id="mob-nav">
+  <!-- Reihe 1 -->
+  <button class="mob-btn" onclick="document.getElementById('reset-zoom').click()">
+    <span class="mob-btn-icon">↺</span>Reset
+  </button>
+  <button class="mob-btn" id="mob-cert-btn" onclick="mobToggleCert()">
+    <span class="mob-btn-icon">✓</span>Gesichert
+  </button>
+  <button class="mob-btn" id="mob-leg-btn" onclick="mobToggleLegendary()">
+    <span class="mob-btn-icon">📜</span>Sagenhaft
+  </button>
+  <button class="mob-btn" onclick="document.getElementById('info-panel').classList.toggle('open')">
+    <span class="mob-btn-icon">ℹ</span>Methodik
+  </button>
+  <!-- Reihe 2 -->
+  <button class="mob-btn" onclick="mobOpenSearch()">
+    <span class="mob-btn-icon">🔍</span>Suchen
+  </button>
+  <button class="mob-btn" id="mob-dyn-btn" onclick="mobToggleDyn()">
+    <span class="mob-btn-icon">👑</span>Dynastien
+  </button>
+  <button class="mob-btn" onclick="document.getElementById('burgen-panel').classList.toggle('open')">
+    <span class="mob-btn-icon">🏰</span>Burgen
+  </button>
+  <button class="mob-btn" onclick="document.getElementById('siegel-panel').classList.toggle('open')">
+    <span class="mob-btn-icon">⚜</span>Sigillum
+  </button>
+</nav>
+
+<!-- Mobile Search Overlay -->
+<div id="mob-search">
+  <button id="mob-search-close" onclick="mobCloseSearch()">✕</button>
+  <input id="mob-search-input" type="text" placeholder="Person suchen …" autocomplete="off"
+         oninput="mobSearchFilter(this.value)">
+  <div id="mob-search-results"></div>
+</div>
+
+<div id="det">
+  <button id="det-x">✕</button>
+  <h2 id="d-name"></h2>
+  <div class="det-tag" id="d-tag"></div>
+  <div class="det-dates" id="d-dates"></div>
+  <div class="det-role" id="d-role"></div>
+  <div class="det-sec"><h3>Vater</h3><p id="d-father"></p></div>
+  <div class="det-sec"><h3>Mutter</h3><p id="d-mother"></p></div>
+  <div class="det-sec" id="d-ch-sec"><h3>Kinder</h3><p id="d-children"></p></div>
+  <div class="det-sec" id="d-sp-sec"><h3>Gatte / Gattin</h3><p id="d-spouse"></p></div>
+</div>
+
+<div id="info-panel" style="position:fixed;left:0;top:54px;bottom:0;width:300px;background:linear-gradient(180deg,rgba(20,10,4,.99),rgba(14,7,4,.99));border-right:1px solid #4A2C14;padding:22px 18px;z-index:60;transform:translateX(-100%);transition:transform .3s ease;overflow-y:auto;">
+  <button onclick="document.getElementById('info-panel').classList.remove('open')" style="position:absolute;top:12px;right:14px;background:transparent;border:none;color:#8A7050;font-size:18px;cursor:pointer;line-height:1;padding:0">✕</button>
+  <h2 style="font-family:'Cinzel',serif;font-size:16px;color:#C9A32A;margin-bottom:12px;">Stammbaum Brenig · Ottonen · Axiom</h2>
+  <div style="background:rgba(255,120,0,.12);border:1px solid rgba(255,120,0,.4);border-radius:3px;padding:10px 12px;margin-bottom:14px;">
+    <p style="font-size:11px;color:#FFB74D;line-height:1.65;margin:0;"><strong>⚠ Wichtiger Hinweis:</strong> Diese Darstellung enthält sowohl urkundlich gesicherte Belege als auch Arbeitshypothesen und erschlossene Verbindungen. Nicht alle Eltern-Kind-Beziehungen sind durch zeitgenössische Quellen belegt. <strong>FamilySearch-Daten (17.–20. Jh.)</strong> wurden übernommen, wo sie mit lokalen Kirchenbüchern (Familienbuch Spich, KB Türnich, KB St. Severin Köln) übereinstimmen; Abweichungen wurden nach Grabstein-Primärquellen (Feldforschung Mai 2026, Friedhof Bad Godesberg) korrigiert. <strong>Gestrichelte Linien</strong> kennzeichnen hypothetische Verbindungen. <strong style="color:#4CAF50">Grün</strong> = urkundlich gesichert · <strong style="color:#FF9800">Orange</strong> = erschlossen · <strong style="color:#888">Grau</strong> = hypothetisch. Vorfahren vor dem 6. Jahrhundert entstammen frühneuzeitlichen Chroniken und sind nicht historisch verifizierbar.</p>
+  </div>
+  <p style="font-size:13px;color:#EDD9A3;line-height:1.6;margin-bottom:12px;font-style:italic;padding:10px 12px;border-left:2px solid #C9A32A;background:rgba(201,163,42,.06);">Rekonstruktion Nova &amp; Jennifer Brenig, 2025</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin-bottom:8px;">Methodik: prosopographische Vernetzung</h3>
+  <p style="font-size:13px;color:#EDD9A3;line-height:1.65;margin-bottom:12px;">Disparate Einzelquellen werden so miteinander in Beziehung gesetzt, dass sie ein kohärentes, wechselseitig stabilisierendes Befundnetz bilden — nicht additive Aggregation, sondern strukturierende Synthese.</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin-bottom:8px;">Quellen</h3>
+  <p style="font-size:12px;color:#8A7050;line-height:1.7;">Regesta Imperii · Necrologia Germaniae · HAK (Historisches Archiv Köln) · LAV NRW · Schreinsbücher · Thietmar von Merseburg · Westfälische Zeitschrift · FamilySearch · Mormonen-Bestände · Münster Urkunden 1245 · Reichskammergericht Köln</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin:14px 0 8px;">Ur-Fundament</h3>
+  <p style="font-size:12px;color:#8A7050;line-height:1.7;">• <strong style="color:#EDD9A3">941</strong> — Brienich (Kirche &amp; Zehntrechte, Erzbischof Wichfrid)<br>• <strong style="color:#EDD9A3">984</strong> — Brunig, Miles (Thietmar v. Merseburg)<br>• <strong style="color:#EDD9A3">11. Jh.</strong> — Bruningus (Necrologia Germaniae)<br>• <strong style="color:#EDD9A3">1016</strong> — Bruning als Reichszeuge (Frankfurt; Reg. Imp. II,4, Nr. 1895)</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin:14px 0 8px;">Arbeitshypothese (10 Generationen, urkundlich nicht vollständig belegt)</h3>
+  <p style="font-size:11px;color:#8A7050;line-height:1.7;">I Athanagild → II Brunichildis → III Blithildis II. (Tochter v. Sigibert I.) → IV Arnoldus v. Metz → V St. Arnulf v. Metz → VI St. Clodulph → VII Aunulfus → … → X Bruningus <em style="color:#FF9800">[früher irrtümlich als Bruder Ottos I. bezeichnet — Verwandtschaft zu den Ottonen urkundlich nicht gesichert; eigenständiger Brunonen-Vorfahre]</em> → Brunulphus · Glomericus → Brenig</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin:14px 0 8px;">Territoriale Herrschaft der Brennensis-Linie</h3>
+  <p style="font-size:12px;color:#8A7050;line-height:1.65;margin-bottom:10px;"><strong style="color:#EDD9A3">Brunnechgoue (Bonngau)</strong> — Der Gau der Brunonen. Hermann I. (Wicilinus), Pfalzgraf v. Lothringen, hielt 15 arcis edificia. <strong style="color:#EDD9A3">Brunnenheim = Brenig</strong> war sakrales &amp; territoriales Zentrum. Bornheim lediglich untergeordnetes Kirchspiel im <em>Liber Valoris</em> (Kirchspiel Brienich/Brenich). 993: Enteignung. 1011: Restitution — Perpetua Hereditas durch Ezzo (Ehrenfried). 1024: Gründung Kloster Brauweiler. Kinder: Richeza (Königin Polen), Theophanu v. Essen, Hermann II. v. Köln u. a. Saffenberg-Linie: Kirchenvogtei St. Martin (Köln) &amp; St. Cassius (Bonn) sicherte Brenig-Orbit bis 1201.</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:10px;letter-spacing:2px;color:#C9A32A;text-transform:uppercase;margin:14px 0 8px;">Geographische Anker</h3>
+  <p style="font-size:12px;color:#8A7050;line-height:1.7;">• <strong style="color:#EDD9A3">1158</strong> — Zehnten zu Born dem Kloster Königsdorf übertragen (Abt Wolbero v. St. Pantaleon); Born liegt direkt neben Brenig im Vorgebirge. Gleiches Jahr wie Bruno villicus (Deutz 1158) — parallele Quellenüberlieferung im selben Gebiet.<br>• <strong style="color:#EDD9A3">1461</strong> — „Freigraf in der krummen freien Grafschaft zu <em>Brunichhusen</em>" (Hofrichter Gr. Joh. v. Sultz, Verbot an Köln; HAK, Köln und das Reich B 612) — Ortsname Brunichhusen = Siedlung der Brunichen; belegt Kontinuität des Brunonen-Toponyms bis ins 15. Jh.</p>
+  <h3 style="font-family:'Cinzel',serif;font-size:1
