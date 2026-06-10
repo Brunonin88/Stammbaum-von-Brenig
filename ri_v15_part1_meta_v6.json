@@ -1,0 +1,320 @@
+{
+  "version": "v15",
+  "total_bands": 33,
+  "total_chunks": 12708,
+  "total_terms": 97331,
+  "bands": [
+    {
+      "band_id": "i_2_1",
+      "title": "",
+      "filename": "RI_I_2_1_ms.pdf",
+      "pages": 407,
+      "chunks": 741,
+      "ocr": true
+    },
+    {
+      "band_id": "i_2_2_1",
+      "title": "",
+      "filename": "RI_I_2_2_1.pdf",
+      "pages": 140,
+      "chunks": 214,
+      "ocr": true
+    },
+    {
+      "band_id": "i_2_1_2",
+      "filename": "RI_I_2_1_2.pdf",
+      "pages": 664,
+      "chunks": 477,
+      "ocr": true
+    },
+    {
+      "band_id": "i_3_3",
+      "filename": "RI_I_3_3_ms.pdf",
+      "pages": 515,
+      "chunks": 430,
+      "ocr": true
+    },
+    {
+      "band_id": "i_3_4_1",
+      "filename": "RI_I_3_4_1_ms.pdf",
+      "pages": 366,
+      "chunks": 425,
+      "ocr": true
+    },
+    {
+      "band_id": "i_3_4_2_1-2",
+      "filename": "RI_I_3_4_2_1-2.pdf",
+      "pages": 365,
+      "chunks": 185,
+      "ocr": true
+    },
+    {
+      "band_id": "i_4_1",
+      "filename": "RI_I_4_1.pdf",
+      "pages": 371,
+      "chunks": 406,
+      "ocr": true
+    },
+    {
+      "band_id": "i_4_2_2",
+      "filename": "RI_I_4_2_2.pdf",
+      "pages": 476,
+      "chunks": 397,
+      "ocr": true
+    },
+    {
+      "band_id": "i_4_2_3",
+      "filename": "RI_I_4_2_3.pdf",
+      "pages": 336,
+      "chunks": 371,
+      "ocr": true
+    },
+    {
+      "band_id": "i_4_3",
+      "filename": "RI_I_4_3_ms.pdf",
+      "pages": 571,
+      "chunks": 475,
+      "ocr": true
+    },
+    {
+      "band_id": "xi_baden-wuerttemberg_1",
+      "filename": "RI_XI_Baden-Wuerttemberg_1.pdf",
+      "pages": 80,
+      "chunks": 136,
+      "ocr": true
+    },
+    {
+      "band_id": "ii_2",
+      "filename": "RI_II_2_small.pdf",
+      "pages": 159,
+      "chunks": 430,
+      "title": "RI II,2 Otto I./II. 919–983 (OCR)",
+      "ocr": true
+    },
+    {
+      "band_id": "ii_4_part1",
+      "filename": "RI_II_4_small__1_.pdf",
+      "pages": 90,
+      "chunks": 365,
+      "title": "RI II,4 – Heinrich II. 1002–1024, Teil 1 (90 Seiten)",
+      "ocr": true
+    },
+    {
+      "band_id": "ii_4_part2",
+      "filename": "RI_II_4_small__2_.pdf",
+      "pages": 90,
+      "chunks": 451,
+      "title": "RI II,4 – Heinrich II. 1007–1014, Teil 2 (90 Seiten)",
+      "ocr": true
+    },
+    {
+      "band_id": "ii_4_part3",
+      "filename": "RI_II_4_small__3_.pdf",
+      "pages": 91,
+      "chunks": 454,
+      "title": "RI II,4 – Heinrich II. 1015–1024, Teil 3 (91 Seiten)",
+      "ocr": true
+    },
+    {
+      "band_id": "ii_4_part4",
+      "filename": "RI_II_4_small__4_.pdf",
+      "pages": 71,
+      "chunks": 172,
+      "title": "RI II,4 Heinrich II. 1017-1024, S.1050-1116 (Reg. 1906-2076)",
+      "ocr": true
+    },
+    {
+      "band_id": "xi_online_supplement",
+      "title": "RI XI Online-Supplement: Regesten Kaiser Sigismunds (1410–1437) aus dem Ungarischen Staatsarchiv Budapest (ZsO)",
+      "filename": "ri_xi_online-supplement.pdf",
+      "pages": 83,
+      "chunks": 0,
+      "source": "Österreichische Akademie der Wissenschaften – Regesta Imperii",
+      "editor": "Karel Hruza; Márta Kondor, Anna Jagošová",
+      "year": 2014,
+      "coverage": "1410-10-06 – 1411-06-29",
+      "ri_series": "XI",
+      "note": "Übersetzung ausgewählter Regesten aus dem Zsigmondkori oklevéltár (ZsO). 185 nummerierte Regesten (Nr. 1–185). Nur online publiziert. Kein PDF-Chunk-Index vorhanden – Volltext liegt als PDF vor.",
+      "ocr": true
+    },
+    {
+      "band_id": "ii_3_part1",
+      "title": "RI II,3 Otto II. & III. 961–1002, Teil 1 (Seiten 1–55, OCR)",
+      "filename": "RI_II_3_small__1_.pdf",
+      "pages": 110,
+      "pages_ocr_done": 55,
+      "chunks": 129,
+      "ri_series": "II",
+      "coverage": "980–986",
+      "ocr": true,
+      "status": "partial_55_of_110_pages",
+      "note": "Teil 1 von RI_II_3 (199MB gesamt aufgeteilt). Otto II./III. Regesten 956a–983l. Kölner Verbindungen: Erzbischof Warin, Erzkanzler Willigis."
+    },
+    {
+      "band_id": "ii_3_part2",
+      "title": "RI II,3 Otto II. & III. 961–1002, Teil 2 (Seiten 1–110, OCR)",
+      "filename": "RI_II_3_small__2_.pdf",
+      "pages": 110,
+      "chunks": 272,
+      "ri_series": "II",
+      "coverage": "991–996",
+      "ocr": true,
+      "note": "Urkunden Ottos III. 991–996. Enthält Hildibald als Kanzler (vice Willigisi archiep.), Kölner Kirchenpolitik, Brunonen-Umfeld."
+    },
+    {
+      "band_id": "ii_3_part3",
+      "title": "RI II,3 Otto II. & III. 961–1002, Teil 3 (Seiten 1–111, OCR)",
+      "filename": "RI_II_3_small__3_.pdf",
+      "pages": 111,
+      "chunks": 284,
+      "ri_series": "II",
+      "coverage": "996–1000",
+      "ocr": true,
+      "note": "Kernband: Heribert als Kanzler Ottos III. (112 Treffer), Kölner Erzbistum, Brunonen-Umfeld. Zeitraum 996–1000."
+    },
+    {
+      "band_id": "ii_3_part4",
+      "title": "RI II,3 Otto II. & III. 961–1002, Teil 4 (Seiten 1–109, OCR)",
+      "filename": "RI_II_3_small__4_.pdf",
+      "pages": 109,
+      "chunks": 260,
+      "ri_series": "II",
+      "coverage": "1000–1002 + Nachträge",
+      "ocr": true,
+      "note": "Abschlussband RI II,3. Heribert als Erzbischof von Köln (121 Treffer), Bruno 15 Treffer, Köln 20 Treffer. Enthält Nachträge und Berichtigungen zu Otto III."
+    },
+    {
+      "band_id": "ii_1_part1",
+      "title": "RI II,1 Heinrich I. & Otto I. 919–973, Teil 1 (Seiten 1–70, OCR)",
+      "filename": "RI_II_1_small__1_.pdf",
+      "pages": 70,
+      "chunks": 148,
+      "ri_series": "II",
+      "coverage": "912–955",
+      "ocr": true,
+      "note": "Heinrich I. und frühes Otto I. Bruno als Kanzler Ottos I. (vor Kölner Erzbistum 953). 17 Bruno-Treffer, 10 Köln-Treffer, Ruotger Vita Brunonis mehrfach zitiert."
+    },
+    {
+      "band_id": "ii_1_part2",
+      "title": "RI II,1 Heinrich I. & Otto I. 919–973, Teil 2 (Seiten 1–70, OCR)",
+      "filename": "RI_II_1_small__2_.pdf",
+      "pages": 70,
+      "chunks": 155,
+      "ri_series": "II",
+      "coverage": "946–959",
+      "ocr": true,
+      "note": "KERNBAND für Bruno den Großen: 122 Bruno/Brun-Treffer. Bruno als Kanzler Ottos I. (Brun canc. adv. Fridurici archicapp.), Aufstieg zum Erzbischof von Köln 953 direkt belegt (n°106 vor seiner erhebung zum erzbischof). 14 Köln-Treffer, 59 Erzbischof-Treffer."
+    },
+    {
+      "band_id": "ii_1_part3",
+      "title": "RI II,1 Heinrich I. & Otto I. 919–973, Teil 3 (Seiten 1–115, OCR)",
+      "filename": "RI_II_1_small__3_.pdf",
+      "pages": 115,
+      "chunks": 253,
+      "ri_series": "II",
+      "coverage": "960–973",
+      "ocr": true,
+      "note": "Brunos aktive Amtszeit als Erzbischof von Köln 960–965, Tod 965. Ruotger Vita Brunonis 19 Treffer. 16 Köln-Treffer, 89 Erzbischof-Treffer. Übergang zu Otto II."
+    },
+    {
+      "band_id": "ii_2_full",
+      "title": "RI II,2 Otto II. 955(973)–983, Vollband (Seiten 1–159, OCR)",
+      "filename": "RI_II_2_small.pdf",
+      "pages": 159,
+      "chunks": 368,
+      "ri_series": "II",
+      "coverage": "955(973)–983",
+      "ocr": true,
+      "note": "Otto II. Vollband. Theophanu 112 Treffer, Gero (Erzbischof Köln 969–976) 62 Treffer, Köln 29 Treffer, Erzbischof 105 Treffer. Direkte Fortsetzung nach Brunos Tod 965."
+    },
+    {
+      "band_id": "ii_5_part1",
+      "title": "RI II,5 Salier: Konrad II. & Heinrich III. 1024–1056, Teil 1 (Seiten 1–100, OCR)",
+      "filename": "RI_II_5_small__1_.pdf",
+      "pages": 100,
+      "chunks": 271,
+      "ri_series": "II",
+      "coverage": "1024–ca.1040",
+      "ocr": true,
+      "note": "Salierband Teil 1. Erzbischof 208 Treffer, Heribert 22, Anno 16, Köln 10. Konrad II. und frühes Heinrich III., Kölner Kirchenpolitik."
+    },
+    {
+      "band_id": "iii_paepste_otto",
+      "title": "RI III Päpste der Ottonenzeit: Benedikt VII., Johannes XIV–XVI, Gregor V., Silvester II. (974–1003, OCR)",
+      "filename": "RI_II_5_small__3_.pdf",
+      "pages": 100,
+      "chunks": 329,
+      "ri_series": "III",
+      "coverage": "974–1003",
+      "ocr": true,
+      "note": "Päpste der Ottonenzeit. Gregor V. 34x, Johannes XV. 31x, Silvester II. (Gerbert v. Aurillac) 10x. Bruno/Brun 40 Treffer, Otto 255 Treffer. Direkt relevant für Kölner Reichskirchenpolitik. HINWEIS: Datei irrtümlich als RI_II_5_small__3_ benannt, ist tatsächlich RI III."
+    },
+    {
+      "band_id": "iii_paepste_bruno",
+      "title": "RI III Päpste der Ottonenzeit: Johannes XII.–XIII., Leo VIII., Benedikt VI.–VII. (955–983, OCR)",
+      "filename": "RI_II_5_small__2_.pdf",
+      "pages": 100,
+      "chunks": 336,
+      "ri_series": "III",
+      "coverage": "955–983",
+      "ocr": true,
+      "note": "Päpste parallel zur Amtszeit Brunos des Großen als Erzbischof von Köln (953–965). Johannes XII. 36x, Johannes XIII. 28x. Otto 290 Treffer, Erzbischof 225 Treffer. HINWEIS: Datei irrtümlich als RI_II_5_small__2_ benannt, ist tatsächlich RI III."
+    },
+    {
+      "band_id": "iii_1_full",
+      "title": "RI III,1 – Konrad II. & Heinrich III. 1024–1056 (144 Seiten, Appelt 1951)",
+      "filename": "RI_III_1_small.pdf",
+      "pages": 144,
+      "chunks": 1018,
+      "ri_series": "III",
+      "coverage": "1024–1039",
+      "ocr": true,
+      "note": "Konrad II. und Heinrich III. Köln 36 Treffer (stärkster Köln-Band bisher!), Pilgrim von Köln 39x, Anno II. 19x, Erzbischof 122x. Kernband für Kölner Kirchenpolitik der Salierzeit."
+    },
+    {
+      "band_id": "iii_1_konrad2",
+      "title": "RI III,1 Konrad II. 1024–1039, Neubearbeitung 2020 (Seiten 1–260, Volltext)",
+      "filename": "RI_III_1_2_1_.pdf",
+      "pages": 260,
+      "chunks": 330,
+      "ri_series": "III",
+      "coverage": "1024–1039",
+      "ocr": true,
+      "note": "NEUBEARBEITUNG 2020 mit sauberem Volltext! Anno (II.) 149x, Köln 77x (stärkster Köln-Band!), Hermann (II.) 110x, Pilgrim 10x. Konrad II. Regesten komplett. Kein OCR nötig."
+    },
+    {
+      "band_id": "ii_6_register",
+      "title": "RI II Register/Konkordanz zu Otto I.+II. (Seiten 1–150 von 343, OCR)",
+      "filename": "RI_II_6_small.pdf",
+      "pages": 343,
+      "pages_ocr_done": 150,
+      "chunks": 297,
+      "ri_series": "II",
+      "coverage": "Register zu RI II,1+II,2 (Otto I. 919–973, Otto II. 973–983)",
+      "ocr": true,
+      "note": "Kein Regestenband Heinrich IV. — ist Register/Konkordanz/Literaturverzeichnis zu RI II. Enthält Stumpf-Regesten-Konkordanz, Quellen- und Literaturverzeichnis, Personen- und Ortsregister. Bruno 9x, Köln 11x. Echter Heinrich-IV-Band fehlt noch im Drive."
+    },
+    {
+      "band_id": "iii_2_3_1",
+      "title": "RI III,2,3 Heinrich IV. 1050(1056)–1106, Teil 1: Reg. 1–362 (1050–1065)",
+      "filename": "RI_III_2_3_1_small.pdf",
+      "pages": 162,
+      "chunks": 362,
+      "ri_series": "III",
+      "coverage": "1050-11-11 – 1065-03-29",
+      "ocr": true,
+      "note": "Heinrich IV. Kindheit (Reg. 1–72), Beginn der Regentschaft Kaiserin Agnes (Reg. 73–196), Kaiserswerther Staatsstreich (Reg. 252), Anno von Köln und Adalbert von Bremen als Reichsregenten, Mündigkeitserklärung 1065 (Reg. 360). Regesten 1–362."
+    },
+    {
+      "band_id": "i_3_1",
+      "title": "RI I,3,1 – Die Karolinger im Regnum Italiae 840–887(888)",
+      "filename": "RI_I_3_1_Regnum_Italiae_und_der_burgundischen_Regina.pdf",
+      "pages": 415,
+      "chunks": 1767,
+      "ri_series": "I",
+      "coverage": "840 – 888",
+      "ocr": true,
+      "note": "Regesten des Regnum Italiae und der burgundischen Regna. Bearbeitet von Herbert Zielinski. Böhlau Verlag Köln/Wien 1991. OCR mit Tesseract (eng)."
+    }
+  ]
+}
