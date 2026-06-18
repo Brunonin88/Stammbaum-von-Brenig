@@ -6,7 +6,7 @@
    Letzte Änderung: 2026-06-16
 ═══════════════════════════════════════════════════════════════ */
 
-const CACHE_NAME = 'genealogia-v48z-index-complete';
+const CACHE_NAME = 'genealogia-v48z-final';
 
 const CORE_ASSETS = [
   './',
@@ -17,6 +17,7 @@ const CORE_ASSETS = [
 
 const DATA_ASSETS = [
   'ri_meta.json',
+  'ri_quellendichte.json',
   'ri_index_a.json',
   'ri_index_b.json',
   'ri_index_c.json',
