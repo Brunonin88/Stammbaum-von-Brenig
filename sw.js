@@ -4,36 +4,100 @@
 //  Strategie: Cache-First für Assets, Network-First für JSON
 // ═══════════════════════════════════════════════════════
 
-const CACHE_NAME = 'genealogia-brennensis-v3';
-const CACHE_ASSETS = 'gb-assets-v3';
-const CACHE_DATA   = 'gb-data-v3';
+const CACHE_ASSETS = 'gb-assets-v4';
+const CACHE_DATA   = 'gb-data-v4';
 
-// ── Kern-Assets: immer offline verfügbar ────────────────
 const CORE_FILES = [
   './',
   './index.html',
   './manifest.json',
+  // Bibliotheken (flach im Root)
+  './d3.min.js',
+  './fuse.min.js',
+  './xlsx.full.min.js',
+  './papaparse.min.js',
+  './leaflet.min.js',
+  './leaflet.min.css',
+  // Fonts (flach im Root)
+  './cinzel-v26-latin-regular.woff2',
+  './cinzel-v26-latin-500.woff2',
+  './cinzel-v26-latin-600.woff2',
+  './cinzel-v26-latin-700.woff2',
+  './cinzel-v26-latin-800.woff2',
+  './cinzel-v26-latin-900.woff2',
+  './crimson-text-v19-latin-regular.woff2',
+  './crimson-text-v19-latin-italic.woff2',
+  './crimson-text-v19-latin-600.woff2',
+  './crimson-text-v19-latin-600italic.woff2',
+  './crimson-text-v19-latin-700.woff2',
+  './crimson-text-v19-latin-700italic.woff2',
+  './icon-192.png',
+  './icon-512.png',
+];
 
-  // JavaScript-Bibliotheken
-  './lib/d3.min.js',
-  './lib/fuse.min.js',
-  './lib/xlsx.full.min.js',
-  './lib/papaparse.min.js',
-  './lib/leaflet.min.js',
-  './lib/leaflet.min.css',
+const RI_FILES = [
+  './ri_meta.json',
+  './ri_chunks_a.json','./ri_chunks_b1.json','./ri_chunks_b2.json',
+  './ri_chunks_c1.json','./ri_chunks_c2.json','./ri_chunks_d.json',
+  './ri_chunks_e.json','./ri_chunks_f.json','./ri_chunks_g.json',
+  './ri_chunks_h.json','./ri_chunks_i.json','./ri_chunks_j.json',
+  './ri_chunks_k.json','./ri_chunks_l.json',
+  './wappenrolle_gelre_v5_final2.json',
+];
 
-  // Fonts — Cinzel
-  './fonts/cinzel-v26-latin-regular.woff2',
-  './fonts/cinzel-v26-latin-500.woff2',
-  './fonts/cinzel-v26-latin-600.woff2',
-  './fonts/cinzel-v26-latin-700.woff2',
-  './fonts/cinzel-v26-latin-800.woff2',
-  './fonts/cinzel-v26-latin-900.woff2',
+self.addEventListener('install', event => {
+  event.waitUntil(
+    caches.open(CACHE_ASSETS).then(cache =>
+      Promise.allSettled(CORE_FILES.map(url =>
+        cache.add(url).catch(e => console.warn('[SW] Skip:', url, e.message))
+      ))
+    ).then(() => self.skipWaiting())
+  );
+});
 
-  // Fonts — Crimson Text
-  './fonts/crimson-text-v19-latin-regular.woff2',
-  './fonts/crimson-text-v19-latin-italic.woff2',
-  './fonts/crimson-text-v19-latin-600.woff2',
+self.addEventListener('activate', event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(keys
+        .filter(k => k !== CACHE_ASSETS && k !== CACHE_DATA)
+        .map(k => caches.delete(k))
+      )
+    ).then(() => self.clients.claim())
+  );
+});
+
+self.addEventListener('fetch', event => {
+  const url = new URL(event.request.url);
+  if (url.origin !== self.location.origin) return;
+
+  const isData = url.pathname.includes('ri_chunk') ||
+                 url.pathname.includes('ri_meta') ||
+                 url.pathname.includes('wappenrolle');
+
+  event.respondWith(
+    caches.open(isData ? CACHE_DATA : CACHE_ASSETS).then(cache =>
+      cache.match(event.request).then(cached => {
+        const net = fetch(event.request).then(r => {
+          if (r.ok) cache.put(event.request, r.clone());
+          return r;
+        }).catch(() => cached);
+        return cached || net;
+      })
+    )
+  );
+});
+
+self.addEventListener('message', event => {
+  if (event.data === 'SKIP_WAITING') self.skipWaiting();
+  if (event.data === 'PREFETCH_RI') {
+    caches.open(CACHE_DATA).then(cache =>
+      Promise.allSettled(RI_FILES.map(url =>
+        fetch(url).then(r => { if(r.ok) cache.put(url, r); })
+      ))
+    ).then(() => event.source.postMessage('RI_PREFETCH_DONE'));
+  }
+});
+
   './fonts/crimson-text-v19-latin-600italic.woff2',
   './fonts/crimson-text-v19-latin-700.woff2',
   './fonts/crimson-text-v19-latin-700italic.woff2',
