@@ -10,12 +10,12 @@
 
 ## Was ist das?
 
-Genealogia Brennensis ist kein gewöhnlicher Stammbaum. Es ist ein **prosopographisches Forschungswerkzeug** — entstanden aus dem Bedürfnis, über 1.100 Jahre Familiengeschichte wissenschaftlich nachvollziehbar zu dokumentieren.
+Genealogia Brennensis ist kein gewöhnlicher Stammbaum. Es ist ein **prosopographisches Forschungswerkzeug** — entstanden aus meinem Bedürfnis, über 1.100 Jahre Familiengeschichte wissenschaftlich nachvollziehbar zu dokumentieren.
 
 Die App visualisiert **945+ Personen über 48 Generationen** — von den Merowingern (5. Jh.) bis in die Gegenwart — und macht dabei nicht nur sichtbar, *wer* mit wem verwandt ist, sondern *wie sicher* diese Verbindungen sind und *warum* sie angenommen werden.
 
 **Das ist der entscheidende Unterschied zu kommerziellen Genealogie-Tools:**  
-Ancestry oder MyHeritage zeigen Daten. Diese App zeigt Quellen, Unsicherheit und Denkwege.
+Andere zeigen und sammeln Daten. Diese App zeigt Quellen, Unsicherheit und Denkwege und ist dabei komplett dezentral und offline-fähig. 
 
 ---
 
