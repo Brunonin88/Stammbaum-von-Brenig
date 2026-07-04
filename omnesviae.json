@@ -1,0 +1,820 @@
+"{
+  "@context": {
+    "@vocab": "http://www.schema.org/",
+    "label": "http://www.schema.org/name",
+    "classic": "http://www.schema.org/name",
+    "modern": "http://www.schema.org/name",
+    "symbol": "http://www.schema.org/category",
+    "alt": "http://www.schema.org/alternateName",
+    "lat": "http://www.schema.org/latitude",
+    "lng": "http://www.schema.org/longitude",
+    "river": "http://www.schema.org/location",
+    "from": "http://www.schema.org/fromLocation",
+    "to": "http://www.schema.org/toLocation",
+    "dist": "http://www.schema.org/distance",
+    "overWater": "http://omnesviae.org/def#overWater",
+    "isReconstructed": "http://omnesviae.org/def#isReconstructed",
+    "crossesMountains": "http://omnesviae.org/def#crossesMountains",
+    "crossesRiver": "http://omnesviae.org/def#crossesRiver"
+  } ,
+  "@graph": [
+    {
+      "@id": "https://omnesviae.org/#TPPlace1000",
+      "@type": "Place",
+      "label": "Avgvsta vindelicv̄",
+      "modern": "Augsburg",
+      "lat": 48.365456,
+      "lng": 10.894768,
+      "symbol": "Aa9"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1001",
+      "@type": "Place",
+      "label": "Ponione",
+      "modern": "Faimingen",
+      "lat": 48.561756,
+      "lng": 10.410222
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1002",
+      "@type": "Place",
+      "label": "Rapis",
+      "modern": "Schwabmünchen",
+      "lat": 48.185600,
+      "lng": 10.755045
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1003",
+      "@type": "Place",
+      "label": "Navoae",
+      "modern": "Eggenthal",
+      "lat": 47.914913,
+      "lng": 10.512053
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1004",
+      "@type": "Place",
+      "label": "Cambodvno",
+      "modern": "Kempten",
+      "lat": 47.723938,
+      "lng": 10.311047
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1006",
+      "@type": "Place",
+      "label": "Abodiaco",
+      "modern": "Epfach",
+      "lat": 47.909885,
+      "lng": 10.909769
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1007",
+      "@type": "Place",
+      "label": "Vrvsa",
+      "modern": "Raisting",
+      "lat": 47.912407,
+      "lng": 11.108567
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1008",
+      "@type": "Place",
+      "label": "Bratananto",
+      "modern": "Gauting",
+      "lat": 48.066494,
+      "lng": 11.380158
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1010",
+      "@type": "Place",
+      "label": "Adenvm",
+      "modern": "Leonhardpfunzen",
+      "lat": 47.884140,
+      "lng": 12.144000
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1011",
+      "@type": "Place",
+      "label": "Bedaio",
+      "modern": "Seebruck",
+      "lat": 47.933617,
+      "lng": 12.477227
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1013",
+      "@type": "Place",
+      "label": "Ivavo",
+      "modern": "Salzburg",
+      "lat": 47.809490,
+      "lng": 13.055010,
+      "symbol": "B16"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1014",
+      "@type": "Place",
+      "label": "Tarnantone",
+      "modern": "Neumarkt am Wallersee",
+      "lat": 47.944839,
+      "lng": 13.224490
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1015",
+      "@type": "Place",
+      "label": "Laciacis",
+      "modern": "Mösendorf",
+      "lat": 47.982449,
+      "lng": 13.465947
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1016",
+      "@type": "Place",
+      "label": "Tergolape",
+      "modern": "Schwanenstadt",
+      "lat": 48.055050,
+      "lng": 13.774730
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1017",
+      "@type": "Place",
+      "label": "Clvnia",
+      "modern": "Feldkirch",
+      "lat": 47.241280,
+      "lng": 9.601900
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1018",
+      "@type": "Place",
+      "label": "Magia",
+      "modern": "Maienfeld",
+      "lat": 47.018398,
+      "lng": 9.542840
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1019",
+      "@type": "Place",
+      "label": "Lvria",
+      "modern": "Chur",
+      "lat": 46.857262,
+      "lng": 9.526730
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1020",
+      "@type": "Place",
+      "label": "Lapidaria",
+      "modern": "Zillis-Reischen",
+      "lat": 46.639889,
+      "lng": 9.450930
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1021",
+      "@type": "Place",
+      "label": "Cvnvavrev",
+      "modern": "Passo dello Spluga",
+      "lat": 46.505600,
+      "lng": 9.330280
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1022",
+      "@type": "Place",
+      "label": "Tarvessedo",
+      "modern": "Gallivaggio",
+      "lat": 46.362423,
+      "lng": 9.366176
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1023",
+      "@type": "Place",
+      "label": "Clavenna",
+      "modern": "Chiavenna",
+      "lat": 46.319744,
+      "lng": 9.397883
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1024",
+      "@type": "Place",
+      "label": "Como",
+      "modern": "Como",
+      "lat": 45.811989,
+      "lng": 9.085564
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1025",
+      "@type": "Place",
+      "label": "Bergomvm",
+      "modern": "Bergamo",
+      "lat": 45.694904,
+      "lng": 9.669953
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1026",
+      "@type": "Place",
+      "label": "Adnovas",
+      "modern": "~ Igling",
+      "lat": 48.072842,
+      "lng": 10.814445
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1027",
+      "@type": "Place",
+      "label": "Avodiaco",
+      "modern": "Epfach",
+      "lat": 47.909885,
+      "lng": 10.909769
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1029",
+      "@type": "Place",
+      "label": "Tarteno",
+      "classic": "Partanum",
+      "modern": "Partenkirchen",
+      "lat": 47.492344,
+      "lng": 11.086231
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1030",
+      "@type": "Place",
+      "label": "Scarbia",
+      "modern": "Mittenwald",
+      "lat": 47.443550,
+      "lng": 11.263830
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1031",
+      "@type": "Place",
+      "label": "Vetonina",
+      "modern": "Wilten",
+      "lat": 47.255947,
+      "lng": 11.384053
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1032",
+      "@type": "Place",
+      "label": "Matreio",
+      "modern": "Matrei am Brenner",
+      "lat": 47.125610,
+      "lng": 11.452400
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1033",
+      "@type": "Place",
+      "label": "Vepiteno",
+      "modern": "Vipiteno",
+      "lat": 46.899185,
+      "lng": 11.431171
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1034",
+      "@type": "Place",
+      "label": "Svblabione",
+      "modern": "~ Chiusa",
+      "lat": 46.639629,
+      "lng": 11.564815
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1035",
+      "@type": "Place",
+      "label": "Pontedrvsi",
+      "modern": "~ Bolzano",
+      "lat": 46.496716,
+      "lng": 11.358005
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1036",
+      "@type": "Place",
+      "label": "Tredente",
+      "modern": "Trento",
+      "lat": 46.066711,
+      "lng": 11.119059,
+      "symbol": "Ab5"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1037",
+      "@type": "Place",
+      "label": "Sarnis",
+      "modern": "Serravalle d’Adige",
+      "lat": 45.810246,
+      "lng": 11.015478
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1042",
+      "@type": "Place",
+      "label": "Brixia",
+      "modern": "Brescia",
+      "lat": 45.539829,
+      "lng": 10.222957
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1044",
+      "@type": "Place",
+      "label": "Ariolica",
+      "modern": "Peschiera del Garda",
+      "lat": 45.439388,
+      "lng": 10.692055
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1047",
+      "@type": "Place",
+      "label": "Hostilia",
+      "modern": "Ostiglia",
+      "lat": 45.070183,
+      "lng": 11.137890
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1048",
+      "@type": "Place",
+      "label": "Mediolanvm",
+      "modern": "Milano",
+      "lat": 45.463688,
+      "lng": 9.188141,
+      "symbol": "Aa6"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1049",
+      "@type": "Place",
+      "label": "Lavde pompeia",
+      "modern": "Lodi",
+      "lat": 45.312878,
+      "lng": 9.497850
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace104",
+      "@type": "Place",
+      "label": "Milev Colonia",
+      "modern": "Mila",
+      "lat": 36.449959,
+      "lng": 6.263480,
+      "symbol": "Aa5"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1050",
+      "@type": "Place",
+      "label": "Acerras",
+      "modern": "Pizzighettone",
+      "lat": 45.189999,
+      "lng": 9.790944
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1051",
+      "@type": "Place",
+      "label": "Placentia",
+      "modern": "Piacenza",
+      "lat": 45.053772,
+      "lng": 9.695142,
+      "symbol": "Ab5"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1052",
+      "@type": "Place",
+      "label": "Cremona",
+      "modern": "Cremone",
+      "lat": 45.133495,
+      "lng": 10.026135
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1053",
+      "@type": "Place",
+      "label": "Deloriaco",
+      "modern": "~ Calvatone",
+      "lat": 45.129536,
+      "lng": 10.442352
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1054",
+      "@type": "Place",
+      "label": "Mantva",
+      "modern": "Mantova",
+      "lat": 45.160366,
+      "lng": 10.797698,
+      "symbol": "Ab1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1055",
+      "@type": "Place",
+      "label": "Vergellis",
+      "modern": "Vercelli",
+      "lat": 45.321110,
+      "lng": 8.426236
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1056",
+      "@type": "Place",
+      "label": "Cvtias",
+      "modern": "Cozzo ~ Candia Lomellina",
+      "lat": 45.193222,
+      "lng": 8.612341,
+      "symbol": "Ac7"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1057",
+      "@type": "Place",
+      "label": "Lavmellvm",
+      "modern": "Lomello",
+      "lat": 45.122036,
+      "lng": 8.797352
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1058",
+      "@type": "Place",
+      "label": "Ticeno",
+      "modern": "Pavia",
+      "lat": 45.185886,
+      "lng": 9.156563,
+      "symbol": "Ac1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1062",
+      "@type": "Place",
+      "label": "Florentia",
+      "modern": "Fiorenzuola d'Arda",
+      "lat": 44.927189,
+      "lng": 9.910787
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1063",
+      "@type": "Place",
+      "label": "Fidentia",
+      "modern": "Fidenza",
+      "lat": 44.865101,
+      "lng": 10.061731
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1064",
+      "@type": "Place",
+      "label": "Parna",
+      "modern": "Parma",
+      "lat": 44.807865,
+      "lng": 10.329548
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1066",
+      "@type": "Place",
+      "label": "Lepidoregio",
+      "modern": "Reggio nell'Emilia",
+      "lat": 44.696232,
+      "lng": 10.627794
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1067",
+      "@type": "Place",
+      "label": "Mvtina",
+      "modern": "Modena",
+      "lat": 44.647079,
+      "lng": 10.925220,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1068",
+      "@type": "Place",
+      "label": "Foro Gallorvm",
+      "modern": "Castelfranco Emilia",
+      "lat": 44.596722,
+      "lng": 11.053148
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1069",
+      "@type": "Place",
+      "label": "Bononia",
+      "modern": "Bologna",
+      "lat": 44.494221,
+      "lng": 11.346481,
+      "symbol": "Ac1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1070",
+      "@type": "Place",
+      "label": "Iria",
+      "modern": "Voghera",
+      "lat": 44.992184,
+      "lng": 9.009680
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1073",
+      "@type": "Place",
+      "label": "Ricina",
+      "modern": "Recco",
+      "lat": 44.362232,
+      "lng": 9.143833
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1078",
+      "@type": "Place",
+      "label": "Lvne",
+      "modern": "Luni",
+      "lat": 44.089855,
+      "lng": 10.026169,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1080",
+      "@type": "Place",
+      "label": "Lvca",
+      "modern": "Lucca",
+      "lat": 43.843014,
+      "lng": 10.507994,
+      "symbol": "Ad3"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1082",
+      "@type": "Place",
+      "label": "Pistoris",
+      "modern": "Pistoia",
+      "lat": 43.932156,
+      "lng": 10.918523
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1084",
+      "@type": "Place",
+      "label": "Hellana",
+      "modern": "~ Agliana",
+      "lat": 43.907501,
+      "lng": 11.007370
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1085",
+      "@type": "Place",
+      "label": "Ad solaria",
+      "modern": "~ Capalle",
+      "lat": 43.836643,
+      "lng": 11.131623
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1086",
+      "@type": "Place",
+      "label": "Florentia Tvscorvm",
+      "modern": "Firenze",
+      "lat": 43.768730,
+      "lng": 11.256901,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1087",
+      "@type": "Place",
+      "label": "Adtaberna Frigida",
+      "modern": "Massa di Carrara",
+      "lat": 44.021111,
+      "lng": 10.116923,
+      "symbol": "C6"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1089",
+      "@type": "Place",
+      "label": "Pisis",
+      "modern": "Pisa",
+      "lat": 43.716133,
+      "lng": 10.396584,
+      "symbol": "Aa24"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1090",
+      "@type": "Place",
+      "label": "Valvata",
+      "modern": "Cascina",
+      "lat": 43.676628,
+      "lng": 10.546802
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1092",
+      "@type": "Place",
+      "label": "Arnvm Fl.",
+      "modern": "Fiume Arno",
+      "lat": 43.724361,
+      "lng": 10.946046
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1094",
+      "@type": "Place",
+      "label": "Bitvriza",
+      "modern": "Montevarchi",
+      "lat": 43.528770,
+      "lng": 11.570007,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1096",
+      "@type": "Place",
+      "label": "Adretio",
+      "modern": "Arezzo",
+      "lat": 43.471275,
+      "lng": 11.863048,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace109",
+      "@type": "Place",
+      "label": "Thibili",
+      "modern": "Announa",
+      "lat": 36.366669,
+      "lng": 7.250000
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1100",
+      "@type": "Place",
+      "label": "Clvsio",
+      "modern": "Chiusi",
+      "lat": 43.017036,
+      "lng": 11.948444,
+      "symbol": "Ac1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1104",
+      "@type": "Place",
+      "label": "Velinis",
+      "modern": "Volterra",
+      "lat": 43.401424,
+      "lng": 10.861111,
+      "symbol": "Aa10"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1105",
+      "@type": "Place",
+      "label": "Vadis Volateris",
+      "modern": "Vada ~ Rosignano Marittimo",
+      "lat": 43.353352,
+      "lng": 10.456738,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1106",
+      "@type": "Place",
+      "label": "Aqvas volaternas",
+      "modern": "Terme di Pomarance",
+      "lat": 43.264500,
+      "lng": 10.876959,
+      "symbol": "C3"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1107",
+      "@type": "Place",
+      "label": "Popvlonio",
+      "modern": "Populonia",
+      "lat": 42.988953,
+      "lng": 10.490491
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1109",
+      "@type": "Place",
+      "label": "Aqvae Popvlaniae",
+      "modern": "Venturina-Terme",
+      "lat": 43.028004,
+      "lng": 10.600888,
+      "symbol": "C17"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1111",
+      "@type": "Place",
+      "label": "Sena Ivlia",
+      "modern": "Siena",
+      "lat": 43.318661,
+      "lng": 11.330514,
+      "symbol": "Aa1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1112",
+      "@type": "Place",
+      "label": "Vmbro Fl.",
+      "modern": "Fiume Ombrone",
+      "lat": 43.004688,
+      "lng": 11.296956
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1114",
+      "@type": "Place",
+      "label": "Manliana",
+      "modern": "Torrita di Siena",
+      "lat": 43.171261,
+      "lng": 11.780481
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1115",
+      "@type": "Place",
+      "label": "Saleborna",
+      "modern": "Castiglione della Pescaia",
+      "lat": 42.765865,
+      "lng": 10.882358
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1118",
+      "@type": "Place",
+      "label": "Telamone",
+      "modern": "Talamone",
+      "lat": 42.555313,
+      "lng": 11.133296
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1119",
+      "@type": "Place",
+      "label": "Albinia Fl.",
+      "modern": "Fiume Albenga",
+      "lat": 42.509350,
+      "lng": 11.207571
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1120",
+      "@type": "Place",
+      "label": "Cosa",
+      "modern": "Ansedonia",
+      "lat": 42.407246,
+      "lng": 11.288557,
+      "symbol": "Ac1"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1121",
+      "@type": "Place",
+      "label": "Svccosa",
+      "modern": "Ansedonia",
+      "lat": 42.407284,
+      "lng": 11.288555
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1122",
+      "@type": "Place",
+      "label": "Port̄ Hercvlis",
+      "modern": "Port’ Ercole",
+      "lat": 42.395069,
+      "lng": 11.203592
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1123",
+      "@type": "Place",
+      "label": "Opitergio",
+      "modern": "Oderzo",
+      "lat": 45.781273,
+      "lng": 12.493628
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1124",
+      "@type": "Place",
+      "label": "Concordia",
+      "modern": "Concordia Sagittaria",
+      "lat": 45.756920,
+      "lng": 12.844317
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1125",
+      "@type": "Place",
+      "label": "Aqvileia",
+      "modern": "Aquileia",
+      "lat": 45.768299,
+      "lng": 13.364626,
+      "symbol": "E2"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1126",
+      "@type": "Place",
+      "label": "Patavis",
+      "modern": "Podova",
+      "lat": 45.409569,
+      "lng": 11.876589
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1127",
+      "@type": "Place",
+      "label": "Altino",
+      "modern": "Altino",
+      "lat": 45.550934,
+      "lng": 12.402095,
+      "symbol": "Aa16"
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace112",
+      "@type": "Place",
+      "label": "Tipasa",
+      "modern": "Tabet es-Sefra",
+      "lat": 36.133331,
+      "lng": 7.700000
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1132",
+      "@type": "Place",
+      "label": "Fossis",
+      "modern": "Chioggia",
+      "lat": 45.217098,
+      "lng": 12.278815
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1134",
+      "@type": "Place",
+      "label": "Radriani",
+      "modern": "Adria",
+      "lat": 45.057518,
+      "lng": 12.055944
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1135",
+      "@type": "Place",
+      "label": "Cornicvlani",
+      "lat": 44.824028,
+      "lng": 12.131134
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1136",
+      "@type": "Place",
+      "label": "Neronia",
+      "modern": "Codigoro",
+      "lat": 44.832794,
+      "lng": 12.111532
+    },
+    {
+      "@id": "https://omnesviae.org/#TPPlace1137",
+      "@type": "Place",
+      "label": "Sacis Ad Padvm",
+   
