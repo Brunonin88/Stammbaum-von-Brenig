@@ -1,0 +1,12 @@
+{
+  "tdm-policies": [
+    {
+      "location": "*",
+      "tdm-reservation": 1,
+      "tdm-policy": "https://brunonin88.github.io/Stammbaum-von-Brenig/",
+      "rightsholder-name": "Jennifer Brenig",
+      "rightsholder-type": "person",
+      "rightsholder-contact": "https://brunonin88.github.io/Stammbaum-von-Brenig/"
+    }
+  ]
+}
